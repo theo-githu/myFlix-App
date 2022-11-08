@@ -10,22 +10,26 @@ let users = [
     {
         id: 1,
         name: "Theo",
-        favouriteMovies: ["The Dark Knight"]
+        favouriteMovies: ["The Dark Knight"],
+        email: "theo@gmail.com"
     },
     {
         id: 2,
         name: "Caroline",
-        favouriteMovies: ["12 Angry Men"]  
+        favouriteMovies: ["12 Angry Men"],
+        email: "caroline@gmail.com"
     },
     {
         id: 3,
         name: "Harriet",
-        favouriteMovies: []
+        favouriteMovies: [],
+        email: "harriet@gmail.com"
     },
     {
         id: 4,
         name: "Andy",
-        favouriteMovies: []
+        favouriteMovies: [],
+        email: "andy@gmail.com"
     }
 ];
 
@@ -104,6 +108,81 @@ let movies = [
             Birth: 1946
         },
         ImageURL:"https://www.imdb.com/title/tt0108052/mediaviewer/rm4180899840/?ref_=tt_ov_i"
+    },
+    {
+        Title: "Jurassic Park",
+        Rating: "8.2/10",
+        Description: "A pragmatic paleontologist touring an almost complete theme park on an island in Central America is tasked with protecting a couple of kids after a power failure causes the park's cloned dinosaurs to run loose.",
+        Genre: {
+            Name: "Action",
+            Description: "Action film is a film genre in which the protagonist is thrust into a series of events that typically involve violence and physical feats."
+        },
+        Director: {
+            Name: "Steven Spielberg",
+            Bio: "One of the most influential personalities in the history of cinema, Steven Spielberg is Hollywood's best known director and one of the wealthiest filmmakers in the world.",
+            Birth: 1946
+        },
+        ImageURL:"https://www.imdb.com/title/tt0107290/mediaviewer/rm3913805824/?ref_=tt_ov_i"
+    },
+    {
+        Title: "Inside Out",
+        Rating: "8.2/10",
+        Description: "After young Riley is uprooted from her Midwest life and moved to San Francisco, her emotions - Joy, Fear, Anger, Disgust and Sadness - conflict on how best to navigate a new city, house, and school.",
+        Genre: {
+            Name: "Animation",
+            Description: "Animation is a method by which still figures are manipulated to appear as moving images."
+        },
+        Director: {
+            Name: "Pete Docter",
+            Bio: "Pete Docter is the Oscar-winning director of many films and Chief Creative Officer at Pixar Animation Studios.",
+            Birth: 1968
+        },
+        ImageURL: "https://www.imdb.com/title/tt2096673/mediaviewer/rm3662344960/?ref_=tt_ov_i"
+    },
+    {
+        Title: "Forrest Gump",
+        Rating: "8.8/10",
+        Description: "The presidencies of Kennedy and Johnson, the Vietnam War, the Watergate scandal and other historical events unfold from the perspective of an Alabama man with an IQ of 75, whose only desire is to be reunited with his childhood sweetheart.",
+        Genre: {
+            Name: "Drama",
+            Description: "In film and television, drama is a category or genre of narrative fiction (or semi-fiction) intended to be more serious than humorous in tone."
+        },
+        Director: {
+            Name: "Robert Zemeckis",
+            Bio: "A whiz-kid with special effects, Robert is from the Spielberg camp of film-making (Steven Spielberg produced many of his films).",
+            Birth: 1951
+        },
+        ImageURL: "https://www.imdb.com/title/tt0109830/mediaviewer/rm1954748672/?ref_=tt_ov_i"
+    },
+    {
+        Title: "A Clockwork Orange",
+        Rating: "8.3/10",
+        Description: "In the future, a sadistic gang leader is imprisoned and volunteers for a conduct-aversion experiment, but it doesn't go as planned.",
+        Genre: {
+            Name: "Sci-Fi",
+            Description: "Science fiction (sometimes shortened to Sci-Fi or SF) is a genre of speculative fiction."
+        },
+        Director: {
+            Name: "Stanley Kubrick",
+            Bio: "Stanley Kubrick was born in Manhattan, New York City, to Sadie Gertrude (Perveler) and Jacob Leonard Kubrick, a physician. His family were Jewish immigrants (from Austria, Romania, and Russia). Stanley was considered intelligent, despite poor grades at school.",
+            Birth: 1928
+        },
+        ImageURL: "https://www.imdb.com/title/tt0066921/mediaviewer/rm1351407872/?ref_=tt_ov_i"
+    },
+    {
+        Title: "Star Wars",
+        Rating: "8.6/10",
+        Description: "Luke Skywalker joins forces with a Jedi Knight, a cocky pilot, a Wookiee and two droids to save the galaxy from the Empire's world-destroying battle station, while also attempting to rescue Princess Leia from the mysterious Darth Vader.",
+        Genre: {
+            Name: "Adventure",
+            Description: "Adventure fiction is a type of fiction that usually presents danger, or gives the reader a sense of excitement."
+        },
+        Director: {
+            Name: "George Lucas",
+            Bio: "George Walton Lucas, Jr. was raised on a walnut ranch in Modesto, California. His father was a stationery store owner and he had three siblings. During his late teen years, he went to Thomas Downey High School and was very much interested in drag racing.",
+            Birth: 1944
+        },
+        ImageURL: "https://www.imdb.com/title/tt0076759/mediaviewer/rm164871937/?ref_=tt_ov_i"
     }
 ];
 
