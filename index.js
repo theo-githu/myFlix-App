@@ -10,25 +10,25 @@ let users = [
     {
         id: 1,
         name: "Theo",
-        favouriteMovies: ["The Dark Knight"],
+        favouriteMovies: ["The Dark Knight", "Inside Out", "Jurassic Park"],
         email: "theo@gmail.com"
     },
     {
         id: 2,
         name: "Caroline",
-        favouriteMovies: ["12 Angry Men"],
+        favouriteMovies: ["12 Angry Men", "Inside Out", "Forrest Gump"],
         email: "caroline@gmail.com"
     },
     {
         id: 3,
         name: "Harriet",
-        favouriteMovies: [],
+        favouriteMovies: ["Inside Out", "Forrest Gump", "A Clockwork Orange", "Star Wars"],
         email: "harriet@gmail.com"
     },
     {
         id: 4,
         name: "Andy",
-        favouriteMovies: [],
+        favouriteMovies: ["A Clockwork Orange", "Star Wars"],
         email: "andy@gmail.com"
     }
 ];
