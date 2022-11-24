@@ -1,50 +1,60 @@
+
 const express = require('express'),
   bodyParser = require('body-parser'),
   uuid = require('uuid');
 
 const app = express();
 
+const mongoose = require('mongoose');
+const Models = require('./models.js');
+
+const Movies = Models.Movie;
+const Users = Models.User;  
+
+mongoose.connect('mongodb://localhost:27017/test', {useNewUrlParser:  true, useUnifiedTopology: true});
+
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 
 let users = [
     {
         id:1,
-        name: "Theo",
+        Username: "Theo",
         Password: "123abc456",
         favouriteMovies: ["The Dark Knight", "Inside Out", "Jurassic Park"],
-        email: "theo@gmail.com",
+        Email: "theo@gmail.com",
         Birthday: "07/12/1993"
     },
     {
         id: 2,
-        name: "Caroline",
+        Username: "Caroline",
         Password: "abcdefg",
         favouriteMovies: ["12 Angry Men", "Inside Out", "Forrest Gump"],
-        email: "caroline@gmail.com",
+        Email: "caroline@gmail.com",
         Birthday: "07/09/1993"
     },
     {
         id: 3,
-        name: "Kieran",
+        Username: "Kieran",
         Password: "poiuyt",
         favouriteMovies: ["Inside Out", "Forrest Gump", "A Clockwork Orange", "Star Wars"],
-        email: "Kieran@gmail.com",
+        Email: "Kieran@gmail.com",
         Birthday: "07/02/1994"
     },
     {
         id: 4,
-        name: "Andy",
+        Username: "Andy",
         Password: "qwertykeys",
         favouriteMovies: ["A Clockwork Orange", "Star Wars"],
-        email: "andy@gmail.com",
+        Email: "andy@gmail.com",
         Birthday: "07/06/1980"
     },
     {
         id: 5,
-        name: "Greg",
+        Username: "Greg",
         Password: "12349876",
         favouriteMovies: ["Star Wars", "Jurassic Park"],
-        email: "greg@gmail.com",
+        Email: "greg@gmail.com",
         Birthday: "07/08/1991"
     }
 ];
