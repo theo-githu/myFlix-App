@@ -15,6 +15,11 @@ mongoose.connect('mongodb://localhost:27017/test', {useNewUrlParser:  true, useU
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
+let auth = require('./auth')(app);
+
+const passport = requires('passport');
+require('./passport');
+
 app.get('/', (req, res) => {
     res.send('Welcome to my film app!');
 });
