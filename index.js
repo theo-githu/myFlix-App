@@ -24,6 +24,8 @@ let auth = require('./auth')(app);
 const passport = require('passport');
 require('./passport');
 
+const {check, validationResult} = require('express-validator'); 
+
 app.get('/', (req, res) => {
     res.send('Welcome to my film app!');
 });
@@ -88,7 +90,20 @@ app.get('/movies/directors/:Name', passport.authenticate('jwt', {session: false}
 });
 
 // add a user
-app.post('/users', (req, res) => {
+app.post('/users'
+[ 
+    check('Username', 'Username is required').isLength({min: 4}),
+    check('Username', 'Username contains non alphanumeric characters - this is not allowed').isAlphanumeric(),
+    check('Password', 'Password is required').not().isEmpty(),
+    check('Email', 'Email does not appear to be valid').isEmail()  
+], (req, res) => {
+
+    let errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+        return res.status(422). json({errors: errors.array()});
+    }
+
     let hashedPassword = Users.hashPassword(req.body.Password);
     Users.findOne({ Username: req.body.Username })
       .then((user) => {
@@ -139,15 +154,27 @@ app.get('/users/:Username', passport.authenticate('jwt', {session: false}), (req
 });
 
 // Update username of user
-app.put('/users/:Username', passport.authenticate('jwt', {session: false}),  (req, res) => {
+app.put('/users/:Username',
+[ 
+    check('Username', 'Username is required').isLength({min: 4}),
+    check('Username', 'Username contains non alphanumeric characters - this is not allowed').isAlphanumeric(),
+    check('Password', 'Password is required').not().isEmpty(),
+    check('Email', 'Email does not appear to be valid').isEmail(),
+    check('Birthday', 'Birthday must be entered as a date').isDate()
+],  passport.authenticate('jwt', {session: false}),  (req, res) => {
+
+    let errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+        return res.status(422). json({errors: errors.array()});
+    }
     Users.findOneAndUpdate({Username: req.params.Username}, 
         {$set: {
         Username: req.body.Username, 
         Password: req.body.Password,
         Email: req.body.Email,
         Birthday: req.body.Birthday
-    }
-    },
+    } },
     {new: true}, 
     (err, updatedUser) => {
         if(err) {
