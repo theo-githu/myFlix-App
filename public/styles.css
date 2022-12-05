@@ -13,3 +13,32 @@ body {
     background: -webkit-linear-gradient(to top, #E9E4F0, #D3CCE3);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to top, #E9E4F0, #D3CCE3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }   
+
+.objective-container{
+    display: flex;
+    color:#D3CCE3;
+    background-color: skyblue;
+    padding: 20px 0;
+}
+
+.criteria-container{
+    display: flex;
+    color:#D3CCE3;
+    background-color: skyblue;
+    padding: 20px 0;
+
+}
+
+.feature-container{
+    display: flex;
+    color:#D3CCE3;
+    background-color: skyblue;
+    padding: 20px 0;
+}
+
+.endpoints-container{
+    display: flex;
+    color:#D3CCE3;
+    background-color: skyblue;
+    padding: 20px 0;
+}
