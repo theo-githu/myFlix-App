@@ -21,6 +21,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 const cors = require('cors');
+app.use(express.static('public'));
 app.use(cors());
 
 let auth = require('./auth')(app);
@@ -115,7 +116,7 @@ app.post('/users'
         } else {
           Users.create({
               Username: req.body.Username,
-              Password: req.body.Password,
+              Password: hashedPassword,
               Email: req.body.Email,
               Birthday: req.body.Birthday
             })
@@ -162,8 +163,8 @@ app.put('/users/:Username',
     check('Username', 'Username is required').isLength({min: 4}),
     check('Username', 'Username contains non alphanumeric characters - this is not allowed').isAlphanumeric(),
     check('Password', 'Password is required').not().isEmpty(),
-    check('Email', 'Email does not appear to be valid').isEmail(),
-    check('Birthday', 'Birthday must be entered as a date').isDate()
+    check('Email', 'Email does not appear to be valid').isEmail()
+    // check('Birthday', 'Birthday must be entered as a date').isDate()
 ],  passport.authenticate('jwt', {session: false}),  (req, res) => {
 
     let errors = validationResult(req);
@@ -171,10 +172,12 @@ app.put('/users/:Username',
     if (!errors.isEmpty()) {
         return res.status(422). json({errors: errors.array()});
     }
+
+    let hashedPassword = Users.hashPassword(req.body.Password);
     Users.findOneAndUpdate({Username: req.params.Username}, 
         {$set: {
         Username: req.body.Username, 
-        Password: req.body.Password,
+        Password: hashedPassword,
         Email: req.body.Email,
         Birthday: req.body.Birthday
     } },
@@ -206,7 +209,7 @@ app.post('/users/:Username/movies/:MovieID', passport.authenticate('jwt', {sessi
 
 // Delete a movie from a user's favourites
 app.delete('/users/:Username/movies/:MovieID', passport.authenticate('jwt', {session: false}), (req, res) => {
-    Users.findOneAndRemove({ Username: req.params.Username }, 
+    Users.findOneAndUpdate({ Username: req.params.Username }, 
         {$pull: { FavoriteMovies: req.params.MovieID } },
      { new: true }, 
     (err, updatedUser) => {
