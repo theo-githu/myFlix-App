@@ -93,7 +93,7 @@ app.get('/movies/directors/:Name', passport.authenticate('jwt', {session: false}
 });
 
 // add a user
-app.post('/users'
+app.post('/users',
 [ 
     check('Username', 'Username is required').isLength({min: 4}),
     check('Username', 'Username contains non alphanumeric characters - this is not allowed').isAlphanumeric(),
