@@ -55,6 +55,7 @@ app.get('/movies', passport.authenticate('jwt', {session: false}), (req, res) =>
         res.status(500).send('Error: ' + err);
     });
 });
+// 
 
 // READ get movie by title
 app.get('/movies/:Title', passport.authenticate('jwt', {session: false}), (req, res) => {
