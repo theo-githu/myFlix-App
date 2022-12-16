@@ -29,9 +29,9 @@ require('./passport');
 
 const {check, validationResult} = require('express-validator'); 
 
-// app.get('/', (req, res) => {
-//     res.send('Welcome to my film app!');
-// });
+app.get('/', (req, res) => {
+    res.send();
+});
 
 app.get('/documentation', (req, res) => {
     res.sendFile('public/documentation.html', {root: __dirname});
